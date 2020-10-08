@@ -13,7 +13,7 @@ $(function() {
     var form = layui.form;
     console.log(layui);
     var layer = layui.layer;
-    // 2.通过form.verify()含糊自定义校验规则
+    // 2.通过form.verify()函数自定义校验规则
     form.verify({
         //自定义一个叫pwd的校验规则
         pwd: [
@@ -55,6 +55,7 @@ $(function() {
         $.ajax({
             method: 'POST',
             url: '/api/login',
+            // 快速获取表单中的数据
             data: $(this).serialize(),
             success: function(res) {
                 // 检验返回状态
