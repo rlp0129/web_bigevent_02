@@ -19,25 +19,13 @@ $.ajaxPrefilter(function(options) {
     }
     //3.登录拦截
     options.complete = function(res) {
-            //     // console.log(res);
-            //     //判断认证时失败跳转回登陆页面
-            if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
-                //1.删除本地token
-                localStorage.removeItem('token');
-                //2.页面跳转
-                location.href = '/login.html';
-            }
-        }
-        //3.登录拦截
-    options.complete = function(res) {
-        //complete: function(res) {
-        //console.log(res);
-        //在complete回调函数中，可以使用res.response.JSON拿到服务器响应回来的数据
+        // console.log(res);
+        //     //判断认证时失败跳转回登陆页面
         if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
-            //1.删除本地存储中的token
+            //1.删除本地token
             localStorage.removeItem('token');
-            //2.重新跳转登录页
-            location.href = "/login.html";
+            //2.页面跳转
+            location.href = '/login.html';
         }
     }
 })
