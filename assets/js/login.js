@@ -38,14 +38,14 @@ $(function() {
                 password: $('.reg-box [name=password]').val(),
             },
             success: function(res) {
-                console.log(res);
+                // console.log(res);
                 // 判断状态
                 if (res.status !== 0) {
                     return layer.msg(res.message);
                 }
                 layer.msg('恭喜您，注册用户成功');
                 // 手动触发a链接
-                $('link_login').click();
+                $('#link_login').click();
             }
         })
     });
